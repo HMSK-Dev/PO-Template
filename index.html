@@ -1,420 +1,583 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth snap-y snap-mandatory">
-<head>
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-        
+    <script src="lib/tailwind/tailwind-3.14.17.js"></script>
+
     <script src="assets/js/script_tailwind_config.js"></script>
-    
-    <style>
-            body { margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; }
-            .brand-maroon { background-color: #5c1c30; }
-            .wave-logo {
-                position: relative;
-                overflow: hidden;
-            }
-            .wave-logo svg { position:absolute; inset:0; height:100%; width:auto; }
-    </style>
 
-</head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-<body  class="bg-white">
+  <body class="bg-white">
+    <nav
+      id="main-nav"
+      class="bg-brandPurple shadow-md fixed top-0 left-0 w-full z-50"
+    >
+      <div id="nav-bar" class="nav-bar flex items-stretch h-20 overflow-hidden">
+        <!---NOTA: IMPRIMIR la variable dump para mostrar y resetear las variables globales-->
 
-    <nav id="main-nav" class="bg-brandPurple shadow-md fixed top-0 left-0 w-full z-50">
-        <div class="nav-bar flex items-stretch h-20 overflow-hidden">
-            <!---NOTA: IMPRIMIR la variable dump para mostrar y resetear las variables globales-->
-
-            <div class="wave-logo flex items-center w-100 h-50 pl-8 pr-10 md:pl-10 md:pr-12 shrink-0" style="background-image: url('assets/img/navbar_assets/navbar-background.svg');" >
-            <img src="assets/img/navbar_assets/navbar-logo.png" alt="Logo" class="h-20 w-auto">
-            <a class="relative z-10 text-white font-black text-lg md:text-2xl tracking-wide whitespace-nowrap ml-3">
-                PROYECTO OLIVO
-            </a>
-            </div>
+        <div
+          class="wave-logo flex items-center w-100 h-50 pl-8 pr-10 md:pl-10 md:pr-12 shrink-0"
+          style="
+            background-image: url(&quot;assets/img/navbar_assets/navbar-background.svg&quot;);
+          "
+        >
+          <img
+            src="assets/img/navbar_assets/navbar-logo.png"
+            alt="Logo"
+            class="h-20 w-auto"
+          />
+          <a
+            class="relative z-10 text-white font-black text-lg md:text-2xl tracking-wide whitespace-nowrap ml-3"
+          >
+            PROYECTO OLIVO
+          </a>
+        </div>
 
         <!-- Links desktop -->
         <ul class="hidden md:flex items-center gap-3 px-6 flex-1 flex-wrap">
-        
-        
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Inicio</a>
-                </li>
-                
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Nosotros</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Inicio</a
+            >
+          </li>
 
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Logros</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Nosotros</a
+            >
+          </li>
 
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Campaña Activa</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Logros</a
+            >
+          </li>
 
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Como Colaborar</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Campaña Activa</a
+            >
+          </li>
 
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Novedades</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Como Colaborar</a
+            >
+          </li>
 
-                <li class=" first:ml-auto last:mr-2">
-                    <a href="#" class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Contacto</a>
-                </li>
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Novedades</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Contacto</a
+            >
+          </li>
         </ul>
-    
+
         <!-- Botón hamburguesa (solo móvil/tablet) -->
-        <button id="menuBtn"
-                class="md:hidden ml-auto mr-6 flex items-center justify-center text-white focus:outline-none focus:ring-2 focus:ring-brandLime rounded-md p-3"
-                aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <svg id="menuIconOpen" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="menuIconClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <button
+          id="menuBtn"
+          aria-controls="mobileMenu"
+          class="md:hidden ml-auto mr-6 flex items-center justify-center text-white focus:outline-none focus:ring-2 focus:ring-brandLime rounded-md p-3"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <svg
+            id="menuIconOpen"
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="menuIconClose"
+            class="w-7 h-7 hidden"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
-    </div>
- 
-  <!-- Menú desplegable móvil -->
-  <ul id="mobileMenu" class="xl:hidden hidden flex-col gap-3 px-6 pb-8 pt-3">
+      </div>
 
-        
-            <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Inicio</a>
-            </li>
-             <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Nosotros</a>
-            </li>
-             <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Logros</a>
-            </li>
-             <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Campaña Activa</a>
-            </li>
-            
-            <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Novedades</a>
-            </li>
-
-            <li>
-                <a href="#" class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors" >Contacto</a>
-            </li>
-
-        
-  </ul>
-</nav>
-<style>
-  :root { --nav-offset: 4rem; } /* valor inicial = h-16, el JS lo corrige al cargar */
- 
-  /* Estado "achicado" de la franja superior al hacer scroll */
-  .nav-bar.nav-scrolled { height: 2.75rem; } /* h-11 */
-  .nav-bar.nav-scrolled .nav-logo { font-size: 0.8rem; }
-  .nav-bar.nav-scrolled .nav-cta { padding-top: 0.375rem; padding-bottom: 0.375rem; font-size: 0.75rem; }
-</style>
-
-<!---CONTENIDO DE MUESTRA-->
-<section class="snap-center min-h-screen pt-[var(--nav-offset)] flex items-center w-full">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center px-6 sm:px-10 md:px-16 py-12 md:py-20">
- 
-    <!-- MEDIA (izquierda) -->
-    <div class="order-1 w-full">
-      <!-- Opción imagen (activa) -->
-      <img
-        src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
-        alt="Imagen descriptiva"
-        class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl"
+      <!-- Menú desplegable móvil -->
+      <ul
+        id="mobileMenu"
+        class="xl:hidden hidden flex-col gap-3 px-6 pb-8 pt-3"
       >
- 
-      <!-- Opción video (comentada, descomenta y borra el <img> de arriba para usarla) -->
-      <!--
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Nosotros</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Logros</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Campaña Activa</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Novedades</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Contacto</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!---CONTENIDO DE MUESTRA-->
+    <section
+      class="snap-center min-h-screen pt-[var(--nav-offset)] flex items-center w-full"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center px-6 sm:px-10 md:px-16 py-12 md:py-20"
+      >
+        <!-- MEDIA (izquierda) -->
+        <div class="order-1 w-full">
+          <!-- Opción imagen (activa) -->
+          <img
+            src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
+            alt="Imagen descriptiva"
+            class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl"
+          />
+
+          <!-- Opción video (comentada, descomenta y borra el <img> de arriba para usarla) -->
+          <!--
       <video class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl" autoplay loop muted playsinline>
         <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
       </video>
       -->
-    </div>
- 
-    <!-- TEXTO (derecha, porque la media está a la izquierda) -->
-    <div class="order-2 w-full">
-      <div class="flex flex-col justify-center h-full text-left">
- 
-        <!-- TÍTULO (opcional: borra este <h2> si no lo necesitas) -->
-        <h2 class="titulo font-serif text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Un título que impacta
-        </h2>
- 
-        <!-- TEXTO DE CUERPO -->
-        <p class="font-sans text-base md:text-lg text-gray-600 mt-4 max-w-prose">
-          Este es el texto de apoyo de la sección. Explica brevemente el mensaje principal,
-          acompañando a la imagen o video con una descripción clara y directa que refuerza
-          la llamada a la acción.
-        </p>
- 
-        <!-- BOTONES (hasta 3, borra los que no uses) -->
-        <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-indigo-600 hover:bg-indigo-700 text-white">
-            Comenzar ahora
-          </a>
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800">
-            Saber más
-          </a>
-          <!--
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-gray-900 hover:bg-black text-white">
-            Contacto
+        </div>
+
+        <!-- TEXTO (derecha, porque la media está a la izquierda) -->
+        <div class="order-2 w-full">
+          <div class="flex flex-col justify-center h-full text-left">
+            <!-- TÍTULO (opcional: borra este <h2> si no lo necesitas) -->
+            <h2
+              class="titulo font-serif text-3xl md:text-5xl font-bold text-gray-900 leading-tight"
+            >
+              Un título que impacta
+            </h2>
+
+            <!-- TEXTO DE CUERPO -->
+            <p
+              class="font-sans text-base md:text-lg text-gray-600 mt-4 max-w-prose"
+            >
+              Este es el texto de apoyo de la sección. Explica brevemente el
+              mensaje principal, acompañando a la imagen o video con una
+              descripción clara y directa que refuerza la llamada a la acción.
+            </p>
+
+            <!-- BOTONES (hasta 3, borra los que no uses) -->
+            <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
+              <a href="#" class="btn-badge">
+                <span class="btn-badge-inner">
+                  <span class="btn-badge-icon">i</span>
+                  Comenzar ahora
+                </span>
+              </a>
+              <a href="#" class="btn-badge">
+                <span class="btn-badge-inner">
+                  <span class="btn-badge-icon">i</span>
+                  Saber más
+                </span>
+              </a>
+              <!--
+          <a href="#" class="btn-badge">
+            <span class="btn-badge-inner">
+              <span class="btn-badge-icon">i</span>
+              Saber más
+            </span>
           </a>
           -->
+            </div>
+          </div>
         </div>
- 
       </div>
-    </div>
- 
-  </div>
-</section>
+    </section>
 
-<!---CONTENIDO DE MUESTRA-->
-<section class="snap-center min-h-screen pt-[var(--nav-offset)] flex items-center w-full">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center px-6 sm:px-10 md:px-16 py-12 md:py-20">
- 
-    <!-- MEDIA (izquierda) -->
-    <div class="order-2 w-full">
-      <!-- Opción imagen (activa) -->
-      <!-- <img
+    <!---CONTENIDO DE MUESTRA-->
+    <section
+      class="snap-center min-h-screen pt-[var(--nav-offset)] flex items-center w-full"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center px-6 sm:px-10 md:px-16 py-12 md:py-20"
+      >
+        <!-- MEDIA (izquierda) -->
+        <div class="order-2 w-full">
+          <!-- Opción imagen (activa) -->
+          <!-- <img
         src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=1200&q=80"
         alt="Imagen descriptiva"
         class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl"
       > -->
- 
-      <!-- Opción video (comentada, descomenta y borra el <img> de arriba para usarla) -->
-      
-      <video class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl" autoplay loop muted playsinline>
-        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+
+          <!-- Opción video (comentada, descomenta y borra el <img> de arriba para usarla) -->
+
+          <video
+            class="w-full h-64 sm:h-80 md:h-full md:max-h-[500px] object-cover rounded-xl"
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+            <source
+              src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <!-- TEXTO (derecha, porque la media está a la izquierda) -->
+        <div class="order-1 w-full">
+          <div class="flex flex-col justify-center h-full text-left">
+            <!-- TÍTULO (opcional: borra este <h2> si no lo necesitas) -->
+            <h2
+              class="titulo font-serif text-3xl md:text-5xl font-bold text-gray-900 leading-tight"
+            >
+              Un título que impacta
+            </h2>
+
+            <!-- TEXTO DE CUERPO -->
+            <p
+              class="font-sans text-base md:text-lg text-gray-600 mt-4 max-w-prose"
+            >
+              Este es el texto de apoyo de la sección. Explica brevemente el
+              mensaje principal, acompañando a la imagen o video con una
+              descripción clara y directa que refuerza la llamada a la acción.
+            </p>
+
+            <!-- BOTONES (hasta 3, borra los que no uses) -->
+            <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
+              <a href="#" class="btn-badge">
+                <span class="btn-badge-inner">
+                  <span class="btn-badge-icon">i</span>
+                  Comenzar ahora
+                </span>
+              </a>
+              <a href="#" class="btn-badge">
+                <span class="btn-badge-inner">
+                  <span class="btn-badge-icon">i</span>
+                  Saber más
+                </span>
+              </a>
+
+              <a href="#" class="btn-badge">
+                <span class="btn-badge-inner">
+                  <span class="btn-badge-icon">i</span>
+                  Contacto
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="snap-center scroll-mt-16 relative min-h-screen pt-[var(--nav-offset)] flex items-center w-full overflow-hidden"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80"
+        alt="Imagen de fondo"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+
+      <div
+        class="contenido-fondo pos-centro relative z-10 w-full px-6 sm:px-10 md:px-16 py-16 flex"
+      >
+        <div class="max-w-2xl">
+          <h2
+            class="titulo font-serif text-3xl md:text-5xl font-bold text-white leading-tight"
+          >
+            Tercera sección
+          </h2>
+          <p
+            class="font-sans text-base md:text-lg text-gray-100 mt-4 max-w-prose"
+          >
+            Este es el texto de apoyo de la sección, con la media de fondo
+            detrás.
+          </p>
+          <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
+            <a href="#" class="btn-badge">
+              <span class="btn-badge-inner">
+                <span class="btn-badge-icon">i</span>
+                Comenzar ahora
+              </span>
+            </a>
+            <a href="#" class="btn-badge">
+              <span class="btn-badge-inner">
+                <span class="btn-badge-icon">i</span>
+                Saber más
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="snap-center scroll-mt-16 relative min-h-screen pt-[var(--nav-offset)] flex items-center w-full overflow-hidden"
+    >
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
       </video>
-     
-    </div>
- 
-    <!-- TEXTO (derecha, porque la media está a la izquierda) -->
-    <div class="order-1 w-full">
-      <div class="flex flex-col justify-center h-full text-left">
- 
-        <!-- TÍTULO (opcional: borra este <h2> si no lo necesitas) -->
-        <h2 class="titulo font-serif text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Un título que impacta
-        </h2>
- 
-        <!-- TEXTO DE CUERPO -->
-        <p class="font-sans text-base md:text-lg text-gray-600 mt-4 max-w-prose">
-          Este es el texto de apoyo de la sección. Explica brevemente el mensaje principal,
-          acompañando a la imagen o video con una descripción clara y directa que refuerza
-          la llamada a la acción.
-        </p>
- 
-        <!-- BOTONES (hasta 3, borra los que no uses) -->
-        <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-indigo-600 hover:bg-indigo-700 text-white">
-            Comenzar ahora
-          </a>
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-transparent hover:bg-gray-100 border border-gray-300 text-gray-800">
-            Saber más
-          </a>
-          
-          <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-gray-900 hover:bg-black text-white">
-            Contacto
-          </a>
-         
-        </div>
- 
-      </div>
-    </div>
- 
-  </div>
-</section>
 
-<section class="snap-center scroll-mt-16 relative min-h-screen pt-[var(--nav-offset)] flex items-center w-full overflow-hidden">
- 
-  <img
-    src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80"
-    alt="Imagen de fondo"
-    class="absolute inset-0 w-full h-full object-cover"
-  >
- 
-  <div class="absolute inset-0 bg-black opacity-40"></div>
- 
-  <div class="contenido-fondo pos-centro relative z-10 w-full px-6 sm:px-10 md:px-16 py-16 flex">
-    <div class="max-w-2xl">
-      <h2 class="titulo font-serif text-3xl md:text-5xl font-bold text-white leading-tight">
-        Tercera sección
-      </h2>
-      <p class="font-sans text-base md:text-lg text-gray-100 mt-4 max-w-prose">
-        Este es el texto de apoyo de la sección, con la media de fondo detrás.
-      </p>
-      <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
-        <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-indigo-600 hover:bg-indigo-700 text-white">
-          Comenzar ahora
-        </a>
-        <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-transparent hover:bg-white/10 border border-white/60 text-white">
-          Saber más
-        </a>
-      </div>
-    </div>
-  </div>
- 
-</section>
+      <div class="absolute inset-0 bg-black opacity-40"></div>
 
-
-
-
-<section class="snap-center scroll-mt-16 relative min-h-screen pt-[var(--nav-offset)] flex items-center w-full overflow-hidden">
- 
-  <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
-    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-  </video>
- 
-  <div class="absolute inset-0 bg-black opacity-40"></div>
- 
-  <div class="contenido-fondo pos-izquierda relative z-10 w-full px-6 sm:px-10 md:px-16 py-16 flex">
-    <div class="max-w-2xl">
-      <h2 class="titulo font-serif text-3xl md:text-5xl font-bold text-white leading-tight">
-        Tercera sección
-      </h2>
-      <p class="font-sans text-base md:text-lg text-gray-100 mt-4 max-w-prose">
-        Este es el texto de apoyo de la sección, con la media de fondo detrás.
-      </p>
-      <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
-        <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-indigo-600 hover:bg-indigo-700 text-white">
-          Comenzar ahora
-        </a>
-        <a href="#" class="inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 px-6 py-3 text-base bg-transparent hover:bg-white/10 border border-white/60 text-white">
-          Saber más
-        </a>
-      </div>
-    </div>
-  </div>
- 
-</section>
-
-
-
-
-<!---CONTENIDO DE MUESTRA-->
-<footer class="brand-maroon text-white snap-center min-h-screen flex items-center w-full">
-  <div class="max-w-7xl mx-auto px-6 md:px-10 py-10">
-    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
- 
-      <!-- Logo -->
-      <div class="flex-shrink-0 flex justify-center lg:justify-start">
-        <img src="assets/img/footer_assets/logo_trace.svg" alt="Logo" class="h-30 w-auto">
-      </div>
- 
-      <!-- Redes + Contacto -->
-      <div class="flex flex-col items-center lg:items-start gap-4">
-        <div class="flex gap-3">
-          <a href="#" class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors">
-            <img src="assets/img/social_media_assets/facebook_icon.svg" alt="Facebook" class="w-5 h-5">
-          </a>
-          <a href="#" class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors">
-            <img src="assets/img/social_media_assets/instagram_icon.svg" alt="Instagram" class="w-8 h-8">
-          </a>
-          <a href="#" class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors">
-            <img src="assets/img/social_media_assets/telegram_icon.svg" alt="Telegram" class="w-8 h-8">
-          </a>
-          <a href="#" class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors">
-            <img src="assets/img/social_media_assets/X_icon.svg" alt="X" class="w-8 h-8">
-          </a>
-        </div>
- 
-        <div class="flex items-center gap-2 text-sm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10.3a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.8 2Z"/></svg>
-          <span class="tracking-wide">+52 222 222 2222</span>
-        </div>
-        <div class="flex items-center gap-2 text-sm">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
-          <span class="tracking-wide">CORREO@CORREO.COM</span>
+      <div
+        class="contenido-fondo pos-izquierda relative z-10 w-full px-6 sm:px-10 md:px-16 py-16 flex"
+      >
+        <div class="max-w-2xl">
+          <h2
+            class="titulo font-serif text-3xl md:text-5xl font-bold text-white leading-tight"
+          >
+            Tercera sección
+          </h2>
+          <p
+            class="font-sans text-base md:text-lg text-gray-100 mt-4 max-w-prose"
+          >
+            Este es el texto de apoyo de la sección, con la media de fondo
+            detrás.
+          </p>
+          <div class="botones mt-6 flex flex-wrap gap-3 sm:gap-4">
+            <a href="#" class="btn-badge">
+              <span class="btn-badge-inner">
+                <span class="btn-badge-icon">i</span>
+                Comenzar ahora
+              </span>
+            </a>
+            <a href="#" class="btn-badge">
+              <span class="btn-badge-inner">
+                <span class="btn-badge-icon">i</span>
+                Saber más
+              </span>
+            </a>
+          </div>
         </div>
       </div>
- 
-      <!-- Columnas de links -->
-      <div class="flex flex-wrap justify-center lg:justify-end gap-14 text-sm">
-        <div>
-          <p class="font-bold mb-2 uppercase">Ayudamos desde...</p>
-          <ul class="space-y-1 font-semibold">
-            <li>Mexico</li>
-            <li>Colombia</li>
-            <li>Argentina</li>
-            <li>Panama</li>
-            <li>Chile</li>
-          </ul>
-        </div>
-        <div>
-          <ul class="space-y-1 font-semibold uppercase ">
-         
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Inicio</a>               
-            </li>
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Nosotros</a>
-            </li>
+    </section>
 
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Logros</a>
-            </li>
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Campaña Activa</a>
-            </li>
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Como Colaborar</a>
-            </li>
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Novedades</a>
-            </li>
-            <li>
-                <a href="#" class="hover:text-[#d9a441]">Contacto</a>
-            </li>
-     
-          </ul>
+    <!---CONTENIDO DE MUESTRA-->
+    <footer
+      class="brand-maroon text-white snap-center min-h-screen flex items-center w-full"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-10">
+        <div
+          class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10"
+        >
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex justify-center lg:justify-start">
+            <img
+              src="assets/img/footer_assets/logo_trace.svg"
+              alt="Logo"
+              class="h-30 w-auto"
+            />
+          </div>
+
+          <!-- Redes + Contacto -->
+          <div class="flex flex-col items-center lg:items-start gap-4">
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="assets/img/social_media_assets/facebook_icon.svg"
+                  alt="Facebook"
+                  class="w-5 h-5"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="assets/img/social_media_assets/instagram_icon.svg"
+                  alt="Instagram"
+                  class="w-8 h-8"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="assets/img/social_media_assets/telegram_icon.svg"
+                  alt="Telegram"
+                  class="w-8 h-8"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="assets/img/social_media_assets/X_icon.svg"
+                  alt="X"
+                  class="w-8 h-8"
+                />
+              </a>
+            </div>
+
+            <div class="flex items-center gap-2 text-sm">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10.3a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.8 2Z"
+                />
+              </svg>
+              <span class="tracking-wide">+52 222 222 2222</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m3 6 9 7 9-7" />
+              </svg>
+              <span class="tracking-wide">CORREO@CORREO.COM</span>
+            </div>
+          </div>
+
+          <!-- Columnas de links -->
+          <div
+            class="flex flex-wrap justify-center lg:justify-end gap-14 text-sm"
+          >
+            <div>
+              <p class="font-bold mb-2 uppercase">Ayudamos desde...</p>
+              <ul class="space-y-1 font-semibold">
+                <li>Mexico</li>
+                <li>Colombia</li>
+                <li>Argentina</li>
+                <li>Panama</li>
+                <li>Chile</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="space-y-1 font-semibold uppercase">
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Inicio</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Nosotros</a>
+                </li>
+
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Logros</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Campaña Activa</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Como Colaborar</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Novedades</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="mt-8 text-xs font-bold tracking-wide text-center lg:text-left"
+        >
+          2024 &copy; PROYECTO OLIVO. TODOS LOS DERECHOS RESERVADOS.
         </div>
       </div>
- 
-    </div>
- 
-    <!-- Copyright -->
-    <div class="mt-8 text-xs font-bold tracking-wide text-center lg:text-left">
-      2024 &copy; PROYECTO OLIVO. TODOS LOS DERECHOS RESERVADOS.
-    </div>
-  </div>
-  
-<style>
-  /* Posición del texto/botones dentro de la sección con media de fondo.
-     Se activa cambiando la clase "pos-izquierda" del div.contenido-fondo
-     por "pos-centro" o "pos-derecha". */
-  .contenido-fondo.pos-izquierda { justify-content: flex-start; }
-  .contenido-fondo.pos-centro    { justify-content: center; }
-  .contenido-fondo.pos-derecha   { justify-content: flex-end; }
- 
-  .contenido-fondo.pos-izquierda > div,
-  .contenido-fondo.pos-izquierda .botones { text-align: left; justify-content: flex-start; }
- 
-  .contenido-fondo.pos-centro > div,
-  .contenido-fondo.pos-centro .botones { text-align: center; justify-content: center; }
- 
-  .contenido-fondo.pos-derecha > div,
-  .contenido-fondo.pos-derecha .botones { text-align: right; justify-content: flex-end; }
-</style>
-<script>
-  
-</script>
-</footer>
 
-    
+      <script></script>
+    </footer>
+
     <script src="assets/js/script.js"></script>
-    
-
-
-
- 
-
-</body>
+  </body>
 </html>
