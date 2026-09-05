@@ -13,15 +13,15 @@ const nav = document.getElementById('main-nav');
     document.documentElement.style.setProperty('--nav-offset', h + 'px');
   }
  
-  // 1) Achicar la franja superior al hacer scroll
-  function updateNavScrollState() {
-    if (window.scrollY > scrollThreshold) {
-      navBar.classList.add('nav-scrolled');
-    } else {
-      navBar.classList.remove('nav-scrolled');
-    }
-    syncNavOffset();
-  }
+  // // 1) Achicar la franja superior al hacer scroll
+  // function updateNavScrollState() {
+  //   if (window.scrollY > scrollThreshold) {
+  //     navBar.classList.add('nav-scrolled');
+  //   } else {
+  //     navBar.classList.remove('nav-scrolled');
+  //   }
+  //   syncNavOffset();
+  // }
  
   // 2) Abrir/cerrar el menú móvil
   function toggleMobileMenu() {
