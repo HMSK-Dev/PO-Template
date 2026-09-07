@@ -5,6 +5,18 @@ const nav = document.getElementById('main-nav');
   const menuIconOpen = document.getElementById('menuIconOpen');
   const menuIconClose = document.getElementById('menuIconClose');
   const scrollThreshold = 40;
+   const track = document.getElementById("carouselTrack");
+
+        const slides = track.children;
+
+        const dots = document.querySelectorAll("[data-slide]");
+
+        const prevButton = document.getElementById("prevButton");
+        const nextButton = document.getElementById("nextButton");
+
+        let currentSlide = 0;
+
+        const totalSlides = slides.length;
  
   // Mide la altura actual del <nav> (franja + menú si está abierto)
   // y la deja disponible como variable CSS para todas las secciones.
@@ -46,8 +58,126 @@ const nav = document.getElementById('main-nav');
   }
  
   menuBtn.addEventListener('click', toggleMobileMenu);
-  window.addEventListener('scroll', updateNavScrollState);
   window.addEventListener('resize', syncNavOffset);
  
-  updateNavScrollState();
+
   syncNavOffset();
+
+        function updateCarousel() {
+
+            track.style.transform =
+                `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+
+                if (index === currentSlide) {
+
+                    dot.classList.remove("bg-orange-500");
+                    dot.classList.add(
+                        "bg-[#38247d]",
+                        "scale-110"
+                    );
+
+                } else {
+
+                    dot.classList.remove(
+                        "bg-[#38247d]",
+                        "scale-110"
+                    );
+
+                    dot.classList.add("bg-orange-500");
+
+                }
+
+            });
+
+        }
+
+
+        function nextSlide() {
+
+            currentSlide++;
+
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+
+            updateCarousel();
+
+        }
+
+
+        function previousSlide() {
+
+            currentSlide--;
+
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+
+            updateCarousel();
+
+        }
+
+
+        nextButton.addEventListener(
+            "click",
+            nextSlide
+        );
+
+        prevButton.addEventListener(
+            "click",
+            previousSlide
+        );
+
+
+        dots.forEach(dot => {
+
+            dot.addEventListener("click", () => {
+
+                currentSlide =
+                    Number(dot.dataset.slide);
+
+                updateCarousel();
+
+            });
+
+        });
+
+
+        /*
+         * Autoplay
+         */
+        let autoplay = setInterval(
+            nextSlide,
+            5000
+        );
+
+
+        /*
+         * Pausar al pasar el mouse
+         */
+        const carousel = track.parentElement;
+
+        carousel.addEventListener(
+            "mouseenter",
+            () => clearInterval(autoplay)
+        );
+
+        carousel.addEventListener(
+            "mouseleave",
+            () => {
+
+                autoplay = setInterval(
+                    nextSlide,
+                    5000
+                );
+
+            }
+        );
+
+
+        /*
+         * Inicializar
+         */
+        updateCarousel();
