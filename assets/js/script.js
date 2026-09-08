@@ -1,183 +1,131 @@
-const nav = document.getElementById('main-nav');
-  const navBar = document.getElementById('nav-bar');
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuIconOpen = document.getElementById('menuIconOpen');
-  const menuIconClose = document.getElementById('menuIconClose');
-  const scrollThreshold = 40;
-   const track = document.getElementById("carouselTrack");
+const nav = document.getElementById("main-nav");
+const navBar = document.getElementById("nav-bar");
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const menuIconOpen = document.getElementById("menuIconOpen");
+const menuIconClose = document.getElementById("menuIconClose");
+const scrollThreshold = 40;
+const track = document.getElementById("carouselTrack");
 
-        const slides = track.children;
+const slides = track.children;
 
-        const dots = document.querySelectorAll("[data-slide]");
+const dots = document.querySelectorAll("[data-slide]");
 
-        const prevButton = document.getElementById("prevButton");
-        const nextButton = document.getElementById("nextButton");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
 
-        let currentSlide = 0;
+let currentSlide = 0;
 
-        const totalSlides = slides.length;
- 
-  // Mide la altura actual del <nav> (franja + menú si está abierto)
-  // y la deja disponible como variable CSS para todas las secciones.
-  function syncNavOffset() {
-    const h = nav.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--nav-offset', h + 'px');
+const totalSlides = slides.length;
+
+// Mide la altura actual del <nav> (franja + menú si está abierto)
+// y la deja disponible como variable CSS para todas las secciones.
+function syncNavOffset() {
+  const h = nav.getBoundingClientRect().height;
+  document.documentElement.style.setProperty("--nav-offset", h + "px");
+}
+
+// // 1) Achicar la franja superior al hacer scroll
+// function updateNavScrollState() {
+//   if (window.scrollY > scrollThreshold) {
+//     navBar.classList.add('nav-scrolled');
+//   } else {
+//     navBar.classList.remove('nav-scrolled');
+//   }
+//   syncNavOffset();
+// }
+
+// 2) Abrir/cerrar el menú móvil
+function toggleMobileMenu() {
+  const isOpen = mobileMenu.classList.contains("flex");
+  if (isOpen) {
+    mobileMenu.classList.remove("flex");
+    mobileMenu.classList.add("hidden");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuIconOpen.classList.remove("hidden");
+    menuIconClose.classList.add("hidden");
+  } else {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("flex");
+    menuBtn.setAttribute("aria-expanded", "true");
+    menuIconOpen.classList.add("hidden");
+    menuIconClose.classList.remove("hidden");
   }
- 
-  // // 1) Achicar la franja superior al hacer scroll
-  // function updateNavScrollState() {
-  //   if (window.scrollY > scrollThreshold) {
-  //     navBar.classList.add('nav-scrolled');
-  //   } else {
-  //     navBar.classList.remove('nav-scrolled');
-  //   }
-  //   syncNavOffset();
-  // }
- 
-  // 2) Abrir/cerrar el menú móvil
-  function toggleMobileMenu() {
-    const isOpen = mobileMenu.classList.contains('flex');
-    if (isOpen) {
-      mobileMenu.classList.remove('flex');
-      mobileMenu.classList.add('hidden');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuIconOpen.classList.remove('hidden');
-      menuIconClose.classList.add('hidden');
-    } else {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
-      menuBtn.setAttribute('aria-expanded', 'true');
-      menuIconOpen.classList.add('hidden');
-      menuIconClose.classList.remove('hidden');
-    }
-    // Se sincroniza dos veces: al instante y tras la transición del
-    // nav-bar (300ms), para que la medida final sea siempre exacta.
-    syncNavOffset();
-    setTimeout(syncNavOffset, 320);
-  }
- 
-  menuBtn.addEventListener('click', toggleMobileMenu);
-  window.addEventListener('resize', syncNavOffset);
- 
-
+  // Se sincroniza dos veces: al instante y tras la transición del
+  // nav-bar (300ms), para que la medida final sea siempre exacta.
   syncNavOffset();
+  setTimeout(syncNavOffset, 320);
+}
 
-        function updateCarousel() {
+menuBtn.addEventListener("click", toggleMobileMenu);
+window.addEventListener("resize", syncNavOffset);
 
-            track.style.transform =
-                `translateX(-${currentSlide * 100}%)`;
+syncNavOffset();
 
-            dots.forEach((dot, index) => {
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-                if (index === currentSlide) {
+  dots.forEach((dot, index) => {
+    if (index === currentSlide) {
+      dot.classList.remove("bg-orange-500");
+      dot.classList.add("bg-[#38247d]", "scale-110");
+    } else {
+      dot.classList.remove("bg-[#38247d]", "scale-110");
 
-                    dot.classList.remove("bg-orange-500");
-                    dot.classList.add(
-                        "bg-[#38247d]",
-                        "scale-110"
-                    );
+      dot.classList.add("bg-orange-500");
+    }
+  });
+}
 
-                } else {
+function nextSlide() {
+  currentSlide++;
 
-                    dot.classList.remove(
-                        "bg-[#38247d]",
-                        "scale-110"
-                    );
+  if (currentSlide >= totalSlides) {
+    currentSlide = 0;
+  }
 
-                    dot.classList.add("bg-orange-500");
+  updateCarousel();
+}
 
-                }
+function previousSlide() {
+  currentSlide--;
 
-            });
+  if (currentSlide < 0) {
+    currentSlide = totalSlides - 1;
+  }
 
-        }
+  updateCarousel();
+}
 
+nextButton.addEventListener("click", nextSlide);
 
-        function nextSlide() {
+prevButton.addEventListener("click", previousSlide);
 
-            currentSlide++;
+dots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    currentSlide = Number(dot.dataset.slide);
 
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            }
+    updateCarousel();
+  });
+});
 
-            updateCarousel();
+/*
+ * Autoplay
+ */
+let autoplay = setInterval(nextSlide, 5000);
 
-        }
+/*
+ * Pausar al pasar el mouse
+ */
+const carousel = track.parentElement;
 
+carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
 
-        function previousSlide() {
+carousel.addEventListener("mouseleave", () => {
+  autoplay = setInterval(nextSlide, 5000);
+});
 
-            currentSlide--;
-
-            if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            }
-
-            updateCarousel();
-
-        }
-
-
-        nextButton.addEventListener(
-            "click",
-            nextSlide
-        );
-
-        prevButton.addEventListener(
-            "click",
-            previousSlide
-        );
-
-
-        dots.forEach(dot => {
-
-            dot.addEventListener("click", () => {
-
-                currentSlide =
-                    Number(dot.dataset.slide);
-
-                updateCarousel();
-
-            });
-
-        });
-
-
-        /*
-         * Autoplay
-         */
-        let autoplay = setInterval(
-            nextSlide,
-            5000
-        );
-
-
-        /*
-         * Pausar al pasar el mouse
-         */
-        const carousel = track.parentElement;
-
-        carousel.addEventListener(
-            "mouseenter",
-            () => clearInterval(autoplay)
-        );
-
-        carousel.addEventListener(
-            "mouseleave",
-            () => {
-
-                autoplay = setInterval(
-                    nextSlide,
-                    5000
-                );
-
-            }
-        );
-
-
-        /*
-         * Inicializar
-         */
-        updateCarousel();
+/*
+ * Inicializar
+ */
+updateCarousel();
