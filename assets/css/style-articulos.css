@@ -1,0 +1,319 @@
+
+/* =====================================================================
+   4) PÁGINA DE ARTÍCULOS (articulos.html) — menú lateral + contenido
+===================================================================== */
+
+/* Layout general: ocupa toda la pantalla disponible debajo del nav fijo */
+.articulos-layout {
+
+  height: calc(100vh);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fondo oscuro detrás del menú, solo visible en móvil cuando está abierto */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  top: var(--nav-offset);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+}
+@media (min-width: 768px) {
+  .sidebar-backdrop { display: none !important; }
+}
+
+/* ---- Menú lateral ---- */
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.3s ease, min-width 0.3s ease;
+  z-index: 40;
+}
+.sidebar.is-collapsed {
+  width: 0;
+  min-width: 0;
+}
+
+/* En móvil, el menú flota encima del contenido en vez de empujarlo */
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: var(--nav-offset);
+    left: 0;
+    bottom: 0;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+  }
+  .sidebar.is-collapsed {
+    box-shadow: none;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: #f2761d; /* color por defecto del encabezado del menú */
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  padding: 0.85rem 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sidebar-collapse-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  flex-shrink: 0;
+}
+.sidebar-collapse-btn:hover { opacity: 0.8; }
+
+.sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: #e4defa; /* lavanda claro de fondo, detrás de los botones */
+  padding: 0.75rem;
+}
+
+/* Botón de cada artículo en el menú — color configurable con --articulo-color */
+.articulo-btn {
+  --articulo-color: #f2761d;
+  background: var(--articulo-color);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  padding: 0.65rem 0.5rem;
+  border: none;
+  border-top: 2px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+.articulo-btn:hover { filter: brightness(1.08); }
+.articulo-btn.is-active { filter: brightness(0.82); }
+
+/* ---- Contenido del artículo ---- */
+.articulos-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  background: #4c1d78; /* morado, combina con el resto del sitio */
+  color: #fff;
+  padding: 0.9rem 1.25rem;
+  flex-shrink: 0;
+}
+.content-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Botón hamburguesa: solo aparece cuando el menú está colapsado */
+.sidebar-open-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background: #f2761d;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.articulos-layout.is-collapsed .sidebar-open-btn { display: flex; }
+
+.content-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1rem;
+}
+
+.content-body {
+  flex: 1;
+  overflow-y: auto;
+  background: #4c1d78; /* fondo morado del contenido, como en el diseño */
+}
+
+/* Cada artículo: oculto por defecto, visible solo con .is-active.
+   Ya NO define el layout interno (grid de 2 columnas) — eso vive en
+   ".articulo-grid" para los artículos simples, o directo en el flujo
+   para los "enriquecidos" (ver más abajo). Así cada artículo puede
+   tener el formato que necesite. */
+.articulo-panel {
+  display: none;
+  padding: 1.5rem;
+  color: #fff;
+}
+.articulo-panel.is-active { display: block; }
+@media (min-width: 768px) {
+  .articulo-panel { padding: 2rem; }
+}
+
+/* =====================================================================
+   FORMATO SIMPLE: texto + UNA imagen/video, en dos columnas
+   (usado por defecto si el artículo envuelve su contenido en
+   <div class="articulo-grid">)
+===================================================================== */
+.articulo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .articulo-grid { grid-template-columns: 1.3fr 1fr; gap: 2rem; }
+}
+
+/* Posición de la imagen/video respecto al texto.
+   Por defecto: texto a la izquierda, media a la derecha.
+   Agrega la clase "media-izquierda" al <article class="articulo-panel">
+   para invertirlo (media a la izquierda, texto a la derecha). */
+.articulo-panel .articulo-texto { order: 1; }
+.articulo-panel .articulo-media { order: 2; }
+.articulo-panel.media-izquierda .articulo-texto { order: 2; }
+.articulo-panel.media-izquierda .articulo-media { order: 1; }
+
+.articulo-texto p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.articulo-media {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  min-height: 220px;
+}
+.articulo-media img,
+.articulo-media video {
+  display: block;
+}
+
+/* =====================================================================
+   FORMATO ENRIQUECIDO: varias imágenes, video y citas mezcladas
+   (usado por artículos con <div class="articulo-enriquecido">, sin la
+   grilla de 2 columnas — el contenido fluye como un solo texto largo,
+   con imágenes/video flotando a un lado y párrafos envolviéndolos)
+===================================================================== */
+.articulo-enriquecido {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.articulo-enriquecido p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Limpia los flotantes al final del artículo, para que el fondo morado
+   no se corte antes de que termine la última imagen flotante */
+.articulo-enriquecido::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.bloque-media {
+  border-radius: 0.65rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.bloque-media img,
+.bloque-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.bloque-media figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Imagen/video flotando a la derecha, con el texto envolviéndolo */
+.bloque-media--derecha {
+  float: right;
+  width: 45%;
+  margin: 0 0 1.25rem 1.5rem;
+}
+/* Imagen/video flotando a la izquierda */
+.bloque-media--izquierda {
+  float: left;
+  width: 45%;
+  margin: 0 1.5rem 1.25rem 0;
+}
+/* Imagen/video a todo el ancho, sin flotar (corta el texto en dos bloques) */
+.bloque-media--completa {
+  float: none;
+  clear: both;
+  width: 100%;
+  margin: 0 0 1.5rem 0;
+}
+
+/* En teléfono, ninguna imagen flota: todo se apila a ancho completo */
+@media (max-width: 767px) {
+  .bloque-media--derecha,
+  .bloque-media--izquierda {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+/* Cita textual destacada */
+.bloque-cita {
+  clear: both;
+  border-left: 4px solid #f2761d;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.9rem 1.25rem;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #fff;
+}
+.bloque-cita cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+}

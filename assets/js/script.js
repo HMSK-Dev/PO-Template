@@ -7,7 +7,7 @@ const menuIconClose = document.getElementById("menuIconClose");
 const scrollThreshold = 40;
 const track = document.getElementById("carouselTrack");
 
-const slides = track.children;
+const slides = track == null ? [] : Array.from(track.children);
 
 const dots = document.querySelectorAll("[data-slide]");
 
@@ -63,6 +63,7 @@ window.addEventListener("resize", syncNavOffset);
 syncNavOffset();
 
 function updateCarousel() {
+  if(track === null) return;
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
   dots.forEach((dot, index) => {
@@ -97,10 +98,11 @@ function previousSlide() {
   updateCarousel();
 }
 
+if(nextButton !== null && prevButton !== null) {
 nextButton.addEventListener("click", nextSlide);
 
 prevButton.addEventListener("click", previousSlide);
-
+}
 dots.forEach((dot) => {
   dot.addEventListener("click", () => {
     currentSlide = Number(dot.dataset.slide);
@@ -117,7 +119,9 @@ let autoplay = setInterval(nextSlide, 5000);
 /*
  * Pausar al pasar el mouse
  */
-const carousel = track.parentElement;
+const carousel = track == null ? null : track.parentElement;
+
+if(carousel !== null) {
 
 carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
 
@@ -129,3 +133,4 @@ carousel.addEventListener("mouseleave", () => {
  * Inicializar
  */
 updateCarousel();
+}

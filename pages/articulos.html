@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth snap-y snap-mandatory">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <script src="../lib/tailwind/tailwind-3.14.17.js"></script>
+
+    <script src="../assets/js/script_tailwind_config.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style-articulos.css" />
+  </head>
+
+  <body class="bg-white">
+    <nav
+      id="main-nav"
+      class="bg-brandPurple shadow-md fixed top-0 left-0 w-full z-50"
+    >
+      <div id="nav-bar" class="nav-bar flex items-stretch h-20 overflow-hidden">
+        <!---NOTA: IMPRIMIR la variable dump para mostrar y resetear las variables globales-->
+
+        <div
+          class="wave-logo flex items-center w-100 h-50 pl-8 pr-10 md:pl-10 md:pr-12 shrink-0"
+          style="
+            background-image: url(&quot;../assets/img/navbar_assets/navbar-background.svg&quot;);
+          "
+        >
+          <img
+            src="../assets/img/navbar_assets/navbar-logo.png"
+            alt="Logo"
+            class="h-20 w-auto"
+          />
+          <a
+            class="relative z-10 text-white font-black text-lg md:text-2xl tracking-wide whitespace-nowrap ml-3"
+          >
+            PROYECTO OLIVO
+          </a>
+        </div>
+
+        <!-- Links desktop -->
+        <ul class="hidden md:flex items-center gap-3 px-6 flex-1 flex-wrap">
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="../index.html"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Inicio</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Nosotros</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Logros</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="campania.html"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Campaña Activa</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Como Colaborar</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Novedades</a
+            >
+          </li>
+
+          <li class="first:ml-auto last:mr-2">
+            <a
+              href="#"
+              class="inline-block border border-brandLime text-white text-xs font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+
+        <!-- Botón hamburguesa (solo móvil/tablet) -->
+        <button
+          id="menuBtn"
+          aria-controls="mobileMenu"
+          class="md:hidden ml-auto mr-6 flex items-center justify-center text-white focus:outline-none focus:ring-2 focus:ring-brandLime rounded-md p-3"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <svg
+            id="menuIconOpen"
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="menuIconClose"
+            class="w-7 h-7 hidden"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menú desplegable móvil -->
+      <ul
+        id="mobileMenu"
+        class="xl:hidden hidden flex-col gap-3 px-6 pb-8 pt-3"
+      >
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Nosotros</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Logros</a
+          >
+        </li>
+        <li>
+          <a
+            href="campania.html"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Campaña Activa</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Novedades</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="#"
+            class="block text-center border border-brandLime text-white text-base font-bold uppercase tracking-wide px-4 py-2 rounded-md hover:bg-brandPurpleDark transition-colors"
+            >Contacto</a
+          >
+        </li>
+      </ul>
+    </nav>
+    
+<!--
+=====================================================================
+  GUÍA RÁPIDA — PÁGINA DE ARTÍCULOS
+=====================================================================
+
+  1) ESTRUCTURA GENERAL:
+     - Un menú lateral colapsable (<aside id="sidebar">) con la lista de
+       artículos.
+     - Un panel de contenido (<main class="articulos-content">) que
+       muestra el artículo seleccionado: título arriba, texto + imagen/
+       video abajo.
+     - Todo vive DEBAJO del nav fijo (usa la misma variable "--nav-offset"
+       que ya calcula el script del nav) y ocupa el resto de la pantalla
+       ("height: calc(100vh - var(--nav-offset))"), con scroll propio
+       tanto en la lista de artículos como en el contenido — así el
+       contenido "scrollea" sin mover el nav ni el resto de la página.
+
+  2) TEXTO EDITABLE (pensado para tu futuro CMS):
+     El texto de cada artículo vive en HTML plano dentro de
+     ".articulo-texto" (simples <p>). Como mencionaste que vas a resolver
+     la edición en Markdown con el CMS que elijas, NO agregué ningún
+     parser de Markdown aquí: la mayoría de los CMS (WordPress, Strapi,
+     Sanity, etc.) convierten el Markdown a HTML del lado del servidor y
+     te entregan HTML listo, que es exactamente lo que va dentro de
+     ".articulo-texto". Cuando integres el CMS, solo reemplazas ese
+     bloque de <p> por el HTML que te devuelva el editor.
+
+  3) IMAGEN o VIDEO POR ARTÍCULO (formato simple, Artículos 1 y 2):
+     Dentro de ".articulo-media" hay un <img> activo y, comentado justo
+     debajo, un <video autoplay loop muted playsinline> — igual que en
+     la página principal. Borra uno y descomenta el otro según necesites.
+
+  3.1) POSICIÓN DE LA IMAGEN/VIDEO (izquierda o derecha del texto):
+     Por defecto el texto va a la izquierda y la media a la derecha.
+     Para invertirlo en un artículo puntual, agrega la clase
+     "media-izquierda" a su <article class="articulo-panel">, así:
+       <article id="articulo-N" class="articulo-panel media-izquierda">
+     (mira el Artículo 2 de este archivo, que ya la trae de ejemplo).
+     En teléfono (una sola columna) esa misma clase también controla si
+     la imagen aparece arriba o abajo del texto.
+
+  3.2) FORMATO ENRIQUECIDO — varias imágenes, video y citas (Artículo 3):
+     Para un artículo con más de una imagen, video, citas textuales, etc.
+     en distintas posiciones, NO uses ".articulo-grid" (el de 2 columnas).
+     En su lugar, envuelve todo en un solo <div class="articulo-enriquecido">
+     y agrega, en el orden que quieras, los bloques que necesites:
+
+       <p>Un párrafo normal.</p>
+
+       <figure class="bloque-media bloque-media--derecha">
+         <img src="..." alt="...">
+         <figcaption>Pie de foto opcional.</figcaption>
+       </figure>
+
+       <figure class="bloque-media bloque-media--izquierda">
+         <img src="..." alt="...">
+       </figure>
+
+       <div class="bloque-media bloque-media--completa">
+         <video autoplay loop muted playsinline>
+           <source src="..." type="video/mp4">
+         </video>
+       </div>
+
+       <blockquote class="bloque-cita">
+         "Texto de la cita."
+         <cite>— Autor</cite>
+       </blockquote>
+
+     - "bloque-media--derecha" / "--izquierda": la imagen o video flota a
+       ese lado y el texto la envuelve alrededor (en teléfono, ambas se
+       apilan a ancho completo, sin flotar).
+     - "bloque-media--completa": ocupa todo el ancho, corta el texto en
+       dos bloques (ideal para videos).
+     - Puedes repetir tantos <figure class="bloque-media ..."> y
+       <blockquote class="bloque-cita"> como quieras, en cualquier orden,
+       intercalados con tus párrafos <p>.
+     - Cuando integres el CMS, este es el HTML que el Markdown debería
+       generar (o que puedes armar manualmente mientras tanto).
+
+  4) COLOR DE CADA BOTÓN DEL MENÍ LATERAL:
+     Cada <button class="articulo-btn"> tiene su color en la variable
+     CSS "--articulo-color" directo en el HTML:
+       <button class="articulo-btn" style="--articulo-color:#f2761d;">
+     Cambia ese valor por cualquier color y ese botón (y su estado activo)
+     se actualiza solo, sin tocar el CSS.
+
+  5) AGREGAR / QUITAR ARTÍCULOS:
+     1. Duplica un <button class="articulo-btn" data-target="articulo-N">
+        dentro de ".sidebar-list" y cambia su texto y "data-target".
+     2. Duplica un <article id="articulo-N" class="articulo-panel"> dentro
+        de ".content-body" con el mismo "N", y cambia su texto/imagen.
+     El primer botón y su artículo ya vienen marcados como activos
+     (clase "is-active" en ambos) para que se vean al cargar la página.
+
+  6) ABRIR / CERRAR EL MENÚ LATERAL:
+     - En escritorio (≥768px) el menú empieza ABIERTO.
+     - En teléfono empieza CERRADO (para no tapar el contenido) y se
+       abre con el botón hamburguesa naranja que aparece en la cabecera
+       del contenido; se cierra con la flecha "‹" de la cabecera del
+       propio menú, tocando fuera de él (fondo oscuro), o automáticamente
+       al elegir un artículo.
+=====================================================================
+-->
+
+
+<div id="articulos-layout" class="articulos-layout snap-center  pt-[var(--nav-offset)] flex ">
+
+  <!-- Fondo oscuro que aparece detrás del menú SOLO en móvil, para cerrarlo al tocar fuera -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop hidden"></div>
+
+  <!-- =====================================================================
+       MENÚ LATERAL DE ARTÍCULOS
+  ===================================================================== -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Artículos de interés</span>
+      <button id="sidebarCollapseBtn" type="button" class="sidebar-collapse-btn" aria-label="Colapsar menú">&#10094;</button>
+    </div>
+
+    <nav class="sidebar-list">
+      <button type="button" class="articulo-btn is-active" data-target="articulo-1" style="--articulo-color:#f2761d;">
+        Artículo 1
+      </button>
+      <button type="button" class="articulo-btn" data-target="articulo-2" style="--articulo-color:#f2761d;">
+        Artículo 2
+      </button>
+      <button type="button" class="articulo-btn" data-target="articulo-3" style="--articulo-color:#f2761d;">
+        Artículo 3
+      </button>
+      <!-- Para agregar más, duplica un botón de estos y cambia su texto y data-target -->
+    </nav>
+  </aside>
+
+  <!-- =====================================================================
+       CONTENIDO DEL ARTÍCULO SELECCIONADO
+  ===================================================================== -->
+  <main class="articulos-content">
+
+    <header class="content-header">
+      <div class="content-header-inner">
+        <!-- Solo visible cuando el menú está colapsado (ver styles.css) -->
+        <button id="sidebarOpenBtn" type="button" class="sidebar-open-btn" aria-label="Abrir menú de artículos">&#9776;</button>
+        <h1 id="content-title" class="content-title">Artículo 1</h1>
+      </div>
+    </header>
+
+    <div class="content-body">
+
+      <!-- ARTÍCULO 1 (activo por defecto) — FORMATO SIMPLE: texto + 1 imagen -->
+      <article id="articulo-1" class="articulo-panel is-active">
+        <div class="articulo-grid">
+          <div class="articulo-texto">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            </p>
+            <p>
+              Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            </p>
+          </div>
+          <div class="articulo-media">
+            <!-- Opción imagen (activa) -->
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=80" alt="Imagen artículo 1" class="w-full h-full object-cover">
+            <!-- Opción video (comentada, descomenta y borra el <img> de arriba para usarla) -->
+            <!--
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+            -->
+          </div>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 2 — FORMATO SIMPLE, con imagen a la IZQUIERDA (clase "media-izquierda") -->
+      <article id="articulo-2" class="articulo-panel media-izquierda">
+        <div class="articulo-grid">
+          <div class="articulo-texto">
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            </p>
+            <p>
+              Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+            </p>
+          </div>
+          <div class="articulo-media">
+            <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=900&q=80" alt="Imagen artículo 2" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </article>
+
+      <!-- ARTÍCULO 3 — FORMATO ENRIQUECIDO: varias imágenes, video y una cita,
+           en distintas posiciones dentro de un mismo texto largo. -->
+      <article id="articulo-3" class="articulo-panel">
+        <div class="articulo-enriquecido">
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+          </p>
+
+          <!-- Imagen 1: flotando a la DERECHA, el texto la envuelve -->
+          <figure class="bloque-media bloque-media--derecha">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80" alt="Imagen 1 del artículo 3">
+            <figcaption>Pie de foto opcional para la imagen 1.</figcaption>
+          </figure>
+
+          <p>
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+          </p>
+          <p>
+            Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+          </p>
+
+          <!-- Cita textual destacada -->
+          <blockquote class="bloque-cita">
+            "Esta es una cita textual de ejemplo, para resaltar una frase importante dentro del artículo."
+            <cite>— Nombre del autor</cite>
+          </blockquote>
+
+          <!-- Imagen 2: flotando a la IZQUIERDA -->
+          <figure class="bloque-media bloque-media--izquierda">
+            <img src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?w=700&q=80" alt="Imagen 2 del artículo 3">
+            <figcaption>Pie de foto opcional para la imagen 2.</figcaption>
+          </figure>
+
+          <p>
+            Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+          </p>
+          <p>
+            Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+          </p>
+
+          <!-- Video a todo el ancho, corta el texto en dos bloques -->
+          <div class="bloque-media bloque-media--completa">
+            <video autoplay loop muted playsinline>
+              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <p>
+            Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
+          </p>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+</div>
+
+
+    <!---CONTENIDO DE MUESTRA-->
+    <footer
+      class="brand-maroon text-white snap-center min-h-screen flex items-center w-full"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-10">
+        <div
+          class="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-40"
+        >
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex justify-center lg:justify-start">
+            <img
+              src="../assets/img/footer_assets/logo_trace.svg"
+              alt="Logo"
+              class="h-30 w-auto"
+            />
+          </div>
+
+          <!-- Redes + Contacto -->
+          <div class="flex flex-col items-center lg:items-start gap-4">
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="../assets/img/social_media_assets/facebook_icon.svg"
+                  alt="Facebook"
+                  class="w-5 h-5"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="../assets/img/social_media_assets/instagram_icon.svg"
+                  alt="Instagram"
+                  class="w-8 h-8"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="../assets/img/social_media_assets/telegram_icon.svg"
+                  alt="Telegram"
+                  class="w-8 h-8"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-[#5c1c30] transition-colors"
+              >
+                <img
+                  src="../assets/img/social_media_assets/X_icon.svg"
+                  alt="X"
+                  class="w-8 h-8"
+                />
+              </a>
+            </div>
+
+            <div class="flex items-center gap-2 text-sm">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10.3a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2-.5c1 .3 2 .5 3 .6a2 2 0 0 1 1.8 2Z"
+                />
+              </svg>
+              <span class="tracking-wide">+52 222 222 2222</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m3 6 9 7 9-7" />
+              </svg>
+              <span class="tracking-wide">CORREO@CORREO.COM</span>
+            </div>
+          </div>
+
+          <!-- Columnas de links -->
+          <div
+            class="flex flex-wrap justify-center lg:justify-end gap-14 text-sm"
+          >
+            <div>
+              <p class="font-bold mb-2 uppercase">Ayudamos desde...</p>
+              <ul class="space-y-1 font-semibold">
+                <li>Mexico</li>
+                <li>Colombia</li>
+                <li>Argentina</li>
+                <li>Panama</li>
+                <li>Chile</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="space-y-1 font-semibold uppercase">
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Inicio</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Nosotros</a>
+                </li>
+
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Logros</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Campaña Activa</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Como Colaborar</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Novedades</a>
+                </li>
+                <li>
+                  <a href="#" class="hover:text-[#d9a441]">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+          class="mt-8 text-xs font-bold tracking-wide text-center lg:text-left"
+        >
+          2024 &copy; PROYECTO OLIVO. TODOS LOS DERECHOS RESERVADOS.
+        </div>
+      </div>
+
+      <script></script>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/script-articulos.js"></script>
+  </body>
+</html>
